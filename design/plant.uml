@@ -3,32 +3,18 @@ class Airport {
   String code
   String Name
   ArrayList<Hangar> hangars
-  ArrayList<PlaneAssignment>: assignments
-  ArrayList<PassengerAssigment>: flightRoster
+  HashMap<Plane,Hangar>: planeAssignments
+  HashMap<Passenger,Flight>: flightRoster
   ArrayList<Flight> : flights
   addHangar(hangar)
   addFlight(flight)
   sellFlight(flight,ArrayList<passenger> group)
-  - assignPlane(plane, hangar)
-  - assignPassenger(flight, passenger)
+  assignPlaneToHangar(plane, hangar)
+  -assignPassengerToFlight(passenger, flight)
 }
 
 class Hangar {
   String: name
-}
-
-class PlaneAssignment {
-  Plane: plane
-  Hangar : hangar
-  assignPlaneToHangar(plane, hangar)
-  movePlaneToRunway(plane)
-}
-
-class PassengerAssignment {
-  Flight: flight
-  Passenger: passenger
-  assignPassengerToPlane(passenger, plane)
-  removePassengerFromPlane(passenger)
 }
 
 enum AircraftType {
@@ -60,10 +46,8 @@ class Passenger {
 
 Airport *-- Hangar : has many
 Airport o-- Flight : has many
-Airport o-- PlaneAssignment : has many
-Airport o-- PassengerAssignment : has many
 Flight o-- Plane : has a
 Plane ... Airline : belongs to
 Plane o-- Passenger : holds
-Plane o-- AircraftType : has a
+Plane o-- AircraftType : has an
 @enduml
