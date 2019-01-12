@@ -1,12 +1,13 @@
-public class Passenger {
+public class Hangar {
 
 	private String name;
 
-	public Passenger(String name) {
+	public Hangar(String name) {
 		this.name = name;
 	}
 
 	public String getName() {
 		return name;
 	}
+
 }
