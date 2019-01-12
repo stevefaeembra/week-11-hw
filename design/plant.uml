@@ -1,0 +1,69 @@
+@startuml
+class Airport {
+  String code
+  String Name
+  ArrayList<Hangar> hangars
+  ArrayList<PlaneAssignment>: assignments
+  ArrayList<PassengerAssigment>: flightRoster
+  ArrayList<Flight> : flights
+  addHangar(hangar)
+  addFlight(flight)
+  sellFlight(flight,ArrayList<passenger> group)
+  - assignPlane(plane, hangar)
+  - assignPassenger(flight, passenger)
+}
+
+class Hangar {
+  String: name
+}
+
+class PlaneAssignment {
+  Plane: plane
+  Hangar : hangar
+  assignPlaneToHangar(plane, hangar)
+  movePlaneToRunway(plane)
+}
+
+class PassengerAssignment {
+  Flight: flight
+  Passenger: passenger
+  assignPassengerToPlane(passenger, plane)
+  removePassengerFromPlane(passenger)
+}
+
+enum AircraftType {
+  Int : capacity
+}
+
+class Airline {
+  String : code
+  String : name
+}
+
+class Flight {
+  String : destination
+  String : flightNumber
+  Plane : plane
+}
+
+class Plane {
+  AircraftType : type
+  Airline : airline
+  ArrayList<Passenger> : passengers
+  canAddPassengers(ArrayList<Passenger>) : boolean
+  addPassengers(ArrayList<Passenger>)
+}
+
+class Passenger {
+  String : name
+}
+
+Airport *-- Hangar : has many
+Airport o-- Flight : has many
+Airport o-- PlaneAssignment : has many
+Airport o-- PassengerAssignment : has many
+Flight o-- Plane : has a
+Plane ... Airline : belongs to
+Plane o-- Passenger : holds
+Plane o-- AircraftType : has a
+@enduml
