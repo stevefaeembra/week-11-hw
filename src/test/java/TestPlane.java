@@ -75,5 +75,4 @@ public class TestPlane {
 		assertEquals(0,plane.getRemainingCapacity());
 	}
 
-
 }
