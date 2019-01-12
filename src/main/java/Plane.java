@@ -21,8 +21,24 @@ public class Plane {
 		return type;
 	}
 
+	public int getRemainingCapacity() {
+		return type.getCapacity() - this.passengers.size();
+	}
+
+	public int getPassengerCount() {
+		return this.passengers.size();
+	}
+
 	public boolean canAddPassengers(ArrayList<Passenger> passengers) {
 		return passengers.size() + this.passengers.size() <= this.type.getCapacity();
+	}
+
+	public void addPassengers(ArrayList<Passenger> passengers) {
+		if (canAddPassengers(passengers)) {
+			for (Passenger p: passengers) {
+				this.passengers.add(p);
+			}
+		}
 	}
 
 }
