@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -79,4 +80,40 @@ public class Airport {
 	}
 
 
+	public void assignPlaneToHangar(Plane plane, Hangar hangar) {
+		planeAssignments.put(plane, hangar);
+	}
+
+
+	public Hangar getPlaneLocation(Plane plane) {
+		if (planeAssignments.containsKey(plane)) {
+			return planeAssignments.get(plane);
+		}
+		else {
+			return null;
+		}
+	}
+
+	public ArrayList<String> dumpInfo() {
+		ArrayList<String> result = new ArrayList<>();
+		// Returns a load of text lines
+		result.add("STATE OF THE AIRPORT");
+		result.add("====================");
+		result.add(String.format("Airport: %s", this.toString()));
+		result.add("\tHangars:");
+		for (Hangar hangar: hangars) {
+			result.add(String.format("\t\t%s", hangar.toString()));
+		};
+		result.add("\tFlights:");
+		for (Flight flight: flights) {
+			result.add(String.format("\t\t%s", flight.toString()));
+			Plane plane = flight.getPlane();
+			result.add(String.format("\t\t\t%s", plane.toString()));
+		}
+		result.add("\tFlight Roster:");
+		for (Passenger passenger: flightRoster.keySet()) {
+			result.add(String.format("\t\t%s is on %s", passenger.toString(), flightRoster.get(passenger).toString()));
+		}
+		return result;
+	}
 }

@@ -55,5 +55,13 @@ public class TestAirport {
 		assertEquals(null,airport.getFlightByFlightNumber("BAA1201"));
 	}
 
+	@Test
+	public void canAssignPlaneToHangar() {
+		Hangar hangar = new Hangar("Hangar A");
+		Airline airline = new Airline("easyJet","EZY");
+		Plane plane = new Plane(airline,AircraftType.AIRBUS_A320);
+		airport.assignPlaneToHangar(plane,hangar);
+		assertEquals(hangar, airport.getPlaneLocation(plane));
+	}
 
 }

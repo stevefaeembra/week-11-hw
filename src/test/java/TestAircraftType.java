@@ -14,7 +14,6 @@ public class TestAircraftType {
 
 	@Test
 	public void hasCapacity() {
-		System.out.println(type);
 		assertEquals(450, type.getCapacity());
 	}
 }
