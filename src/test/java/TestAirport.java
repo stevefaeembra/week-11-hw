@@ -31,11 +31,28 @@ public class TestAirport {
 	}
 
 	@Test
+	public void returnsNullIfHangarNotFound() {
+		Hangar hangar = new Hangar("Hangar A");
+		airport.addHangar(hangar);
+		assertEquals(null, airport.getHangarByName("Hangar B"));
+	}
+
+	@Test
 	public void ableToAddFlight() {
-		Airline airline = new Airline("easayJet","EZY");
+		Airline airline = new Airline("easyJet","EZY");
 		Plane plane = new Plane(airline,AircraftType.AIRBUS_A320);
 		Flight flight = new Flight("Glasgow", "EZY123", plane);
 		airport.addFlight(flight);
 		assertEquals(flight,airport.getFlightByFlightNumber("EZY123"));
 	}
+
+	@Test
+	public void returnsNullIfFlightNotFound() {
+		Airline airline = new Airline("easyJet","EZY");
+		Plane plane = new Plane(airline,AircraftType.AIRBUS_A320);
+		Flight flight = new Flight("Glasgow", "EZY123", plane);
+		airport.addFlight(flight);
+		assertEquals(null,airport.getFlightByFlightNumber("BAA1201"));
+	}
+
 }

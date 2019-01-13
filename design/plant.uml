@@ -6,11 +6,16 @@ class Airport {
   HashMap<Plane,Hangar>: planeAssignments
   HashMap<Passenger,Flight>: flightRoster
   ArrayList<Flight> : flights
+
   addHangar(hangar)
   addFlight(flight)
   sellFlight(flight,ArrayList<passenger> group)
   assignPlaneToHangar(plane, hangar)
-  -assignPassengerToFlight(passenger, flight)
+
+  - assignPassengerToFlight(passenger, flight)
+  - getHangarByName(string) : Hangar
+  - getFlightByFlightNumber(string) : Flight
+
 }
 
 class Hangar {
