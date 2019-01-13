@@ -64,4 +64,13 @@ public class TestAirport {
 		assertEquals(hangar, airport.getPlaneLocation(plane));
 	}
 
+	@Test
+	public void getPlaneLocationReturnsNullIfPlaneNotAssignedToHangar() {
+		Plane plane2 = new Plane(
+			new Airline("Woops","WPS"),
+			AircraftType.BOEING_747
+		);
+		assertEquals(null, airport.getPlaneLocation(plane2));
+	}
+
 }
