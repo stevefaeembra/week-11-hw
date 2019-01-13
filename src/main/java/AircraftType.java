@@ -1,7 +1,8 @@
 public enum AircraftType {
 
 	BOEING_747(450),
-	AIRBUS_A320(236)
+	AIRBUS_A320(236),
+	BEECHCRAFT_BONANZA(4)
 	;
 
 

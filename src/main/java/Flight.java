@@ -23,4 +23,9 @@ public class Flight {
 		return plane;
 	}
 
+	public String toString() {
+		return String.format("Flight: {number:%s destination:%s}", this.flightNumber, this.destination);
+	}
+
+
 }

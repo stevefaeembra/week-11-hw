@@ -9,4 +9,8 @@ public class Passenger {
 	public String getName() {
 		return name;
 	}
+
+	public String toString() {
+		return String.format("Passenger: {name:%s}", this.name);
+	}
 }

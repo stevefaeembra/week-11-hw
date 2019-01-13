@@ -110,10 +110,19 @@ public class Airport {
 			Plane plane = flight.getPlane();
 			result.add(String.format("\t\t\t%s", plane.toString()));
 		}
+		result.add("\tHangar Assignments:");
+		for (Plane plane: planeAssignments.keySet()) {
+			result.add(String.format("\t\t%s is in %s", plane.toString(), planeAssignments.get(plane).toString()));
+		}
 		result.add("\tFlight Roster:");
 		for (Passenger passenger: flightRoster.keySet()) {
 			result.add(String.format("\t\t%s is on %s", passenger.toString(), flightRoster.get(passenger).toString()));
 		}
 		return result;
 	}
+
+	public String toString() {
+		return String.format("Airport: {code:%s name:%s}", this.code, this.name);
+	}
+
 }

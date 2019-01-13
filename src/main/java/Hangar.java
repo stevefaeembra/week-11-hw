@@ -10,4 +10,8 @@ public class Hangar {
 		return name;
 	}
 
+	public String toString() {
+		return String.format("Hangar: {name:%s}", this.name);
+	}
+
 }

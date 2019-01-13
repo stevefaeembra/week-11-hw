@@ -41,4 +41,7 @@ public class Plane {
 		}
 	}
 
+	public String toString() {
+		return String.format("Plane: {type:%s, capacity:%d}", this.type, this.type.getCapacity());
+	}
 }

@@ -4,6 +4,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class TestAirportDumpInfo {
 
@@ -35,12 +36,28 @@ public class TestAirportDumpInfo {
 		airport.sellFlight(flight, group);
 	}
 
+	public void addNewFlight() {
+		Plane plane = new Plane(
+			new Airline("Dwyer Flying Service","???"),
+			AircraftType.BEECHCRAFT_BONANZA
+		);
+		Flight flight = new Flight("Hector ND","N3794N",plane);
+		airport.addFlight(flight);
+		ArrayList<Passenger> group = new ArrayList<Passenger>();
+		group.add(new Passenger("Buddy Holly"));
+		group.add(new Passenger("Ritchie Valens"));
+		group.add(new Passenger("Big Bopper"));
+		airport.sellFlight(flight, group);
+	}
+
 	@Test
 	public void dumpInfo() {
+		addNewFlight();
 		ArrayList<String> dump = airport.dumpInfo();
 		for (String line : dump) {
 			System.out.println(line);
 		}
+		assertNotEquals(null, dump);
 	}
 
 
