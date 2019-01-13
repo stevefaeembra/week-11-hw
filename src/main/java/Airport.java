@@ -26,4 +26,30 @@ public class Airport {
 	public String getName() {
 		return name;
 	}
+
+	public void addHangar(Hangar hangar) {
+		this.hangars.add(hangar);
+	}
+
+	public Hangar getHangarByName(String name) {
+		for (Hangar h:hangars) {
+			if (h.getName() == name) {
+				return h;
+			}
+		};
+		return null;
+	}
+
+	public void addFlight(Flight flight) {
+		flights.add(flight);
+	}
+
+	public Flight getFlightByFlightNumber(String name) {
+		for (Flight f:flights) {
+			if (f.getFlightNumber() == name) {
+				return f;
+			}
+		};
+		return null;
+	}
 }

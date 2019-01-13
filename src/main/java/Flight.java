@@ -22,4 +22,5 @@ public class Flight {
 	public Plane getPlane() {
 		return plane;
 	}
+
 }
