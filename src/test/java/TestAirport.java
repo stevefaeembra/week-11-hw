@@ -55,4 +55,5 @@ public class TestAirport {
 		assertEquals(null,airport.getFlightByFlightNumber("BAA1201"));
 	}
 
+
 }

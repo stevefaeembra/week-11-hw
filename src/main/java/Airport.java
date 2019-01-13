@@ -52,4 +52,31 @@ public class Airport {
 		};
 		return null;
 	}
+
+	public void sellFlight(Flight flight, ArrayList<Passenger> group) {
+		Plane plane = flight.getPlane();
+		if (plane.canAddPassengers(group)) {
+			plane.addPassengers(group);
+			assignPassengersToFlight(group, flight);
+		}
+	}
+
+	private void assignPassengersToFlight(ArrayList<Passenger> group, Flight flight) {
+		for (Passenger p: group) {
+			flightRoster.put(p, flight);
+		}
+	}
+
+	public Flight getPassengerFlight(String passengerName) {
+		// not ideal as we may have two passengers with same name
+		// on different flights :-)
+		for (Passenger p: flightRoster.keySet()) {
+			if (p.getName() == passengerName) {
+				return flightRoster.get(p);
+			}
+		}
+		return null;
+	}
+
+
 }

@@ -11,10 +11,10 @@ class Airport {
   addFlight(flight)
   sellFlight(flight,ArrayList<passenger> group)
   assignPlaneToHangar(plane, hangar)
-
-  - assignPassengerToFlight(passenger, flight)
-  - getHangarByName(string) : Hangar
-  - getFlightByFlightNumber(string) : Flight
+  getPassengerFlight(string) : Flight
+  - assignPassengersToFlight(ArrayList<passenger>, Flight)
+  - getHangarByName(String) : Hangar
+  - getFlightByFlightNumber(String) : Flight
 
 }
 
